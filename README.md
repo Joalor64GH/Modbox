@@ -1,8 +1,10 @@
-# Modbox
-A collection of random tools for Incredibox modding.
+# Joalor64's Modbox
+A collection of tools I made for Incredibox modding.
 
-## To-Do
-* [ ] Actually make the website
-* [ ] App.js generator
-* [X] Looptime + Totalframe Finder
-* [ ] Spritesheet generator
+## Current Tools
+* App.js Generator
+* Looptime + Totalframe Finder
+* Spritesheet Generator
+
+### Want another tool to be added?
+Make an [issue](https://github.com/Joalor64GH/Modbox/issues) or a [pull request](https://github.com/Joalor64GH/Modbox/pulls)!

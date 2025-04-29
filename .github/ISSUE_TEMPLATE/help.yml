@@ -1,0 +1,10 @@
+name: Help
+description: If you need any general help.
+labels: [help wanted]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe your problem here."
+    validations:
+      required: true

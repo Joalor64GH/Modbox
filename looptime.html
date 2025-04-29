@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joalor64's Modbox - Looptime + Totalframe Finder</title>
+    <meta name='author' content='Joalor64'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/looptime.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joalor64gh.github.io/Modbox">
+    <meta property="og:title" content="Joalor64's Modbox">
+    <meta property="og:description" content="A collection of tools for Incredibox modding.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Joalor64GH/Modbox/main/favicon.png">
+    <meta data-react-helmet="true" name="theme-color" content="#f5a918">
+</head>
+
+<body>
+    <div class="back-button" onclick="window.location.href='index.html'">⏴Back</div>
+    <h1>Looptime + Totalframe Finder</h1>
+    <div class="container">
+        <p align="center">Note: You might need less or more frames so the totalframe amount is actually
+            correct.</p>
+        <hr>
+        <input class="input" type="text" placeholder="BPM" id="bpminput">
+        <input class="input" type="text" placeholder="Beats per loop (Optional)" id="beatsloopinput">
+        <button class="button" id="submit-button">Submit</button>
+        <h3 id="results-text"></h3>
+    </div>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function () {
+            const bpm = Number(document.getElementById('bpminput').value.trim());
+            let bpl = Number(document.getElementById('beatsloopinput').value.trim());
+            if (isNaN(bpl) || bpl <= 0) {
+                bpl = 16;
+            }
+
+            if (!isNaN(bpm) && bpm > 0) {
+                let looptime = Math.trunc((60000 / bpm) * bpl);
+                let totalframe = Math.floor((looptime * 0.024)) * 2;
+
+                document.getElementById("results-text").innerHTML =
+                    `Results:<br>Looptime: ${looptime} ms<br>Totalframe: ${totalframe}`;
+            } else {
+                document.getElementById("results-text").innerHTML = "Please enter a valid BPM.";
+            }
+        });
+    </script>
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">☀️</div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

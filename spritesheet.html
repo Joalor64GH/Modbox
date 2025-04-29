@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joalor64's Modbox - Spritesheet Generator</title>
+    <meta name='author' content='Joalor64'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/spritesheet.css" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joalor64gh.github.io/Modbox">
+    <meta property="og:title" content="Joalor64's Modbox">
+    <meta property="og:description" content="A collection of tools for Incredibox modding.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Joalor64GH/Modbox/main/favicon.png">
+    <meta data-react-helmet="true" name="theme-color" content="#f5a918">
+</head>
+
+<body>
+    <div class="back-button" onclick="window.location.href='index.html'">⏴Back</div>
+    <div id="upper">
+        <h1 id="header">Spritesheet Generator</h1>
+        <div id="body-input-div" class="flex">
+            <label>Upload Bodies:</label>
+            <input type="file" id="bodyInput" accept="image/*" multiple />
+        </div>
+        <div id="head-input-div" class="flex">
+            <label>Upload Heads:</label>
+            <input type="file" id="headInput" accept="image/*" multiple />
+        </div>
+        <p id="note">
+            NOTE: You have to import at least one<br>of each body and head to generate.
+        </p>
+        <button onclick="createSpritesheet()" id="generate-bt">Generate</button>
+        <button onclick="createHDSpritesheet()" id="generateHD-bt" style="display: none;">Generate HD</button>
+        <a id="downloadLink" download="spritesheet.png"><button id="downloadLink-bt">Download</button></a>
+        <a id="downloadLinkHD" style="display: none;" download="spritesheet_hd.png"><button
+                id="downloadLinkHD-bt">Download HD</button></a>
+    </div>
+    <div id="sheet">
+        <canvas id="spriteCanvas"></canvas>
+    </div>
+    <div id="settings-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Settings</h2>
+            <label for="headWidth">Head Width:</label>
+            <input type="number" id="headWidth" value="164" />
+            <label for="headHeight">Head Height:</label>
+            <input type="number" id="headHeight" value="199" />
+            <label for="bodyWidth">Body Width:</label>
+            <input type="number" id="bodyWidth" value="164" />
+            <label for="bodyHeight">Body Height:</label>
+            <input type="number" id="bodyHeight" value="380" />
+            <label for="headsPerRow">Heads Per Row:</label>
+            <input type="number" id="headsPerRow" value="6" />
+            <button onclick="applySettings()">Apply</button>
+            <button onclick="closeSettings()">Close</button>
+        </div>
+    </div>
+    <button id="settings-button" onclick="openSettings()">⚙️ Settings</button>
+    <script src="js/spritesheet.js"></script>
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">☀️</div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+name: Bugs/Errors
+description: Report any bugs with the tools.
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe your issue here."
+    validations:
+      required: true
+
+  - type: textarea
+    id: terminal
+    attributes:
+      label: "Console Logs (if available)"
+      render: bash
+    validations:
+      required: false

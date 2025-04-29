@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+input[type="file"] {
+    background-color: transparent !important;
+}
+
+button {
+    transition: background-color, border, color, 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: white;
+    font-family: inherit;
+    border-radius: 50px;
+    border: 1.6px solid black;
+    width: 200px;
+    height: 30px;
+    scale: 1;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+    border: transparent;
+    transition: none;
+}
+
+#downloadLink-bt {
+    display: none;
+    outline: none !important;
+}
+
+#downloadLinkHD-bt {
+    display: none;
+    outline: none !important;
+}
+
+#generate-bt {
+    display: none;
+}
+
+#generateHD-bt {
+    display: none;
+}
+
+#sheet {
+    transition: width, height, 0.5s;
+    background-color: #a7a7a7;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1000;
+    color: black;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.lightmode .popup {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#settings-button {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#settings-button:hover {
+    background-color: #0056b3;
+}
