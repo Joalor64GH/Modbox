@@ -9,10 +9,6 @@ document.getElementById('close-popup').addEventListener('click', () => {
     document.getElementById('color-popup').style.display = 'none';
 });
 
-document.getElementById('save-colors').addEventListener('click', () => {
-    document.getElementById('color-popup').style.display = 'none';
-});
-
 function createInputElement(type, id, name, value = '', additionalAttributes = {}) {
     const input = document.createElement('input');
     input.type = type;
@@ -218,7 +214,8 @@ var app = new function() {
 
     const downloadDiv = document.getElementById('download-link');
     downloadDiv.innerHTML = '';
-    downloadDiv.appendChild(createDownloadButton(appJsContent, 'app.js', 'Download app.js'));
+    var appPrefix = (isV9) ? `versions-v${version}` : 'app';
+    downloadDiv.appendChild(createDownloadButton(appJsContent, `${appPrefix}.js`, `Download ${appPrefix}.js`));
 }
 
 function createDownloadButton(content, fileName, buttonText) {
