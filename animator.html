@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joalor64's Modbox - Polo Animator</title>
+    <meta name='author' content='Joalor64'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animator.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joalor64gh.github.io/Modbox">
+    <meta property="og:title" content="Joalor64's Modbox">
+    <meta property="og:description" content="A collection of tools for Incredibox modding.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Joalor64GH/Modbox/main/favicon.png">
+    <meta data-react-helmet="true" name="theme-color" content="#f5a918">
+</head>
+
+<body>
+    <div class="back-button" onclick="window.location.href='index.html'">⏴Back</div>
+    <div class="wrap">
+        <h1>Polo Animator (Beta)</h1>
+
+        <div class="row">
+            <div class="panel preview" style="flex: 0 0 380px">
+                <div id="character">
+                    <div id="body" aria-hidden="true"></div>
+                    <div id="head"></div>
+                </div>
+            </div>
+
+            <div class="panel controls" style="flex: 1">
+                <div class="row-between">
+                    <div>
+                        <label>Sprite: <input id="spriteInput" type="file" accept="image/*"></label>
+                        <label>Audio: <input id="audioInput" type="file" accept="audio/*"></label>
+                        <label>JSON: <input id="jsonInput" type="file" accept="application/json"></label>
+                    </div>
+                </div>
+
+                <p class="small">Configurations</p>
+                <div class="row">
+                    <label>Width <input id="widthInput" type="number" value="164"></label>
+                    <label>Height <input id="heightInput" type="number" value="380"></label>
+                    <label>HeadHeight <input id="headHeightInput" type="number" value="199"></label>
+                </div>
+
+                <div class="row">
+                    <label>Name <input id="name" type="text" value="myanim"></label>
+                </div>
+
+                <p class="small">Animation</p>
+                <div class="row">
+                    <label>X <input id="xpos" type="number" value="0"></label>
+                    <label>Y <input id="ypos" type="number" value="0"></label>
+                    <label style="align-items:center"><input id="dragAdd" type="checkbox"> Drag & add</label>
+                </div>
+
+                <div style="margin-top:8px">
+                    <button id="prevhead">Prev Head</button>
+                    <button id="nexthead">Next Head</button>
+                    <button id="moveUp">Up</button>
+                    <button id="moveDown">Down</button>
+                    <button id="moveLeft">Left</button>
+                    <button id="moveRight">Right</button>
+                </div>
+
+                <div style="margin-top:8px">
+                    <button id="addFrame">Add Frame</button>
+                    <button id="removeFrame">Remove Frame</button>
+                    <button id="prevProp">Prev Frame</button>
+                    <button id="nextProp">Next Frame</button>
+                    <span id="propsCounter" class="small">prop 0/0</span>
+                </div>
+
+                <div style="margin-top: 8px;">
+                    <button id="playAnim">Preview Animation</button>
+                    <div style="margin-top: 8px;">
+                        <label>Loop Time (ms) <input id="polo_looptime" type="number" value="2000"></label>
+                        <label><input type="checkbox" id="loopAnim"> Loop animation</label>
+                    </div>
+                    <button id="download">Export JSON</button>
+                </div>
+
+                <canvas id="canvas" style="margin-top:10px"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <audio id="track" preload="auto" controls style="display:none"></audio>
+
+    <script src="js/animator.js"></script>
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">☀️</div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

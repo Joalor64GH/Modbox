@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/appjs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://joalor64gh.github.io/Modbox">
@@ -22,64 +23,75 @@
     <h1>App.js Generator</h1>
 
     <form id="appjs-form">
-        <h2>Metadata</h2>
-        <label for="name">App Name:</label>
-        <input type="text" id="name" name="name" value="Alpha"><br>
 
-        <label for="version">Version:</label>
-        <input type="text" id="version" name="version" value="1"><br>
+        <!-- Metadata Section -->
+        <section class="form-section">
+            <h2>Metadata</h2>
+            <div class="section-content">
+                <label for="name">App Name:</label>
+                <input type="text" id="name" name="name" value="Alpha">
 
-        <label for="date">Date:</label>
-        <input type="text" id="date" name="date" value="2009"><br>
+                <label for="version">Version:</label>
+                <input type="text" id="version" name="version" value="1">
 
-        <label for="looptime">Loop Time:</label>
-        <input type="number" id="looptime" name="looptime" value="5333"><br>
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date" value="2009">
 
-        <label for="bpm">BPM:</label>
-        <input type="number" id="bpm" name="bpm" value="90"><br>
+                <label for="looptime">Loop Time:</label>
+                <input type="number" id="looptime" name="looptime" value="5333">
 
-        <label for="totalframe">Totalframe:</label>
-        <input type="number" id="totalframe" name="totalframe" value="260"><br>
+                <label for="bpm">BPM:</label>
+                <input type="number" id="bpm" name="bpm" value="90">
 
-        <label for="nbpolo">Polos Allowed On-Screen:</label>
-        <input type="number" id="nbpolo" name="nbpolo" value="7"><br>
+                <label for="totalframe">Totalframe:</label>
+                <input type="number" id="totalframe" name="totalframe" value="260">
 
-        <label for="nbloopbonus">Loops per Bonus:</label>
-        <input type="number" id="nbloopbonus" name="nbloopbonus" value="2"><br>
+                <label for="nbpolo">Polos Allowed On-Screen:</label>
+                <input type="number" id="nbpolo" name="nbpolo" value="7">
 
-        <label for="bonusloopA">Bonus Start on Loop A:</label>
-        <select id="bonusloopA" name="bonusloopA">
-            <option value="true">True</option>
-            <option value="false">False</option>
-        </select><br>
+                <label for="nbloopbonus">Loops per Bonus:</label>
+                <input type="number" id="nbloopbonus" name="nbloopbonus" value="2">
 
-        <label for="bonusendloopA">Bonus End on Loop A:</label>
-        <select id="bonusendloopA" name="bonusendloopA">
-            <option value="true">True</option>
-            <option value="false">False</option>
-        </select><br>
+                <label for="bonusloopA">Bonus Start on Loop A:</label>
+                <select id="bonusloopA" name="bonusloopA">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
 
-        <label for="recmaxloop">Maximum Loops for Recording:</label>
-        <input type="number" id="recmaxloop" name="recmaxloop" value="34"><br>
+                <label for="bonusendloopA">Bonus End on Loop A:</label>
+                <select id="bonusendloopA" name="bonusendloopA">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
 
-        <label for="recminloop">Minimum Loops for Recording:</label>
-        <input type="number" id="recminloop" name="recminloop" value="4"><br>
+                <label for="recmaxloop">Maximum Loops for Recording:</label>
+                <input type="number" id="recmaxloop" name="recmaxloop" value="34">
 
-        <button type="button" id="open-color-popup">Configure Colors</button><br>
+                <label for="recminloop">Minimum Loops for Recording:</label>
+                <input type="number" id="recminloop" name="recminloop" value="4">
 
-        <label for="animearraylength">Number of Polos:</label>
-        <input type="number" id="animearraylength" name="animearraylength" value="20"
-            onchange="generatePoloInputs()"><br>
+                <button type="button" id="open-color-popup">Configure Colors</button>
 
-        <label for="bonusarraylength">Number of Bonuses:</label>
-        <input type="number" id="bonusarraylength" name="bonusarraylength" value="3"
-            onchange="generateBonusInputs()"><br>
+                <label for="animearraylength">Number of Polos:</label>
+                <input type="number" id="animearraylength" name="animearraylength" value="20" min="1" max="100"
+                    onchange="generatePoloInputs()">
 
-        <h2>Polos</h2>
-        <div id="polo-inputs-container"></div>
+                <label for="bonusarraylength">Number of Bonuses:</label>
+                <input type="number" id="bonusarraylength" name="bonusarraylength" value="3" min="0"
+                    onchange="generateBonusInputs()">
+            </div>
+        </section>
 
-        <h2>Bonuses</h2>
-        <div id="bonus-inputs-container"></div>
+        <section class="form-section">
+            <h2>Polos</h2>
+            <div class="section-content scrollable" id="polo-inputs-container"></div>
+        </section>
+
+        <section class="form-section">
+            <h2>Bonuses</h2>
+            <div class="section-content scrollable" id="bonus-inputs-container"></div>
+        </section>
+
     </form>
     <br>
     <div class="button-container">
@@ -109,10 +121,26 @@
             <label for="col4">Color 4:</label>
             <input type="color" id="col4" name="col4" value="#232323"><br>
 
+            <div id="loading-bar-container" class="progress-box">
+                <div class="scale"></div>
+                <div id="loading-bar" class="progress-bar"></div>
+            </div>
+
+            <div class="preview-buttons">
+                <button class="preview-btn btn-circle">
+                    <i class="fa-solid fa-play fa-2x"></i>
+                </button>
+                <button class="preview-btn btn-circle">
+                    <i class="fa-solid fa-music fa-2x"></i>
+                </button>
+                <button class="preview-btn btn-circle">
+                    <i class="fa-solid fa-arrows-left-right fa-2x"></i>
+                </button>
+            </div>
+
             <button type="button" id="close-popup">Close</button>
         </div>
     </div>
-
     <script src="js/appjs.js"></script>
     <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">☀️</div>
     <script src="js/script.js"></script>

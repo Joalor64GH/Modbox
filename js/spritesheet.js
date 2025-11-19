@@ -29,17 +29,17 @@ function applySettings() {
 }
 
 function handleFileInputChange() {
-    const headsCount = document.querySelector("#headInput").files.length;
-    const bodiesCount = document.querySelector("#bodyInput").files.length;
+    const headsCount = document.querySelector('#headInput').files.length;
+    const bodiesCount = document.querySelector('#bodyInput').files.length;
 
     const shouldShowButtons = headsCount > 0 && bodiesCount > 0;
-    document.querySelector("#generate-bt").style.display = shouldShowButtons ? "block" : "none";
-    document.querySelector("#generateHD-bt").style.display = shouldShowButtons ? "block" : "none";
-    document.querySelector("#note").style.display = shouldShowButtons ? "none" : "block";
+    document.querySelector('#generate-bt').style.display = shouldShowButtons ? 'block' : 'none';
+    document.querySelector('#generateHD-bt').style.display = shouldShowButtons ? 'block' : 'none';
+    document.querySelector('#note').style.display = shouldShowButtons ? 'none' : 'block';
 }
 
-document.querySelector("#bodyInput").addEventListener("change", handleFileInputChange);
-document.querySelector("#headInput").addEventListener("change", handleFileInputChange);
+document.querySelector('#bodyInput').addEventListener('change', handleFileInputChange);
+document.querySelector('#headInput').addEventListener('change', handleFileInputChange);
 
 function loadImage(file, index, imagesArray, onAllImagesLoaded) {
     const img = new Image();
@@ -53,8 +53,8 @@ function loadImage(file, index, imagesArray, onAllImagesLoaded) {
 }
 
 function createSpritesheet(isHD = false) {
-    const bodyInput = document.getElementById("bodyInput");
-    const headInput = document.getElementById("headInput");
+    const bodyInput = document.getElementById('bodyInput');
+    const headInput = document.getElementById('headInput');
     const bodyFiles = Array.from(bodyInput.files).reverse();
     const headFiles = Array.from(headInput.files).reverse();
 
@@ -74,12 +74,12 @@ function createSpritesheet(isHD = false) {
     headFiles.forEach((file, index) => loadImage(file, index, headImages, onAllImagesLoaded));
 }
 
-document.getElementById("generateHD-bt").addEventListener("click", () => createSpritesheet(true));
-document.getElementById("generate-bt").addEventListener("click", () => createSpritesheet(false));
+document.getElementById('generateHD-bt').addEventListener('click', () => createSpritesheet(true));
+document.getElementById('generate-bt').addEventListener('click', () => createSpritesheet(false));
 
 function createAndDownloadSpritesheet(bodyImages, headImages, isHD = false) {
-    const canvas = document.getElementById("spriteCanvas");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById('spriteCanvas');
+    const ctx = canvas.getContext('2d');
 
     const scaleFactor = isHD ? 2 : 1;
     const totalWidth = Math.max(
@@ -123,19 +123,19 @@ function createAndDownloadSpritesheet(bodyImages, headImages, isHD = false) {
     });
 
     const downloadLink = document.getElementById(
-        isHD ? "downloadLinkHD" : "downloadLink"
+        isHD ? 'downloadLinkHD' : 'downloadLink'
     );
     const downloadButton = document.getElementById(
-        isHD ? "downloadLinkHD-bt" : "downloadLink-bt"
+        isHD ? 'downloadLinkHD-bt' : 'downloadLink-bt'
     );
 
-    downloadLink.href = canvas.toDataURL("image/png");
-    downloadLink.style.display = "block";
-    downloadButton.style.display = "block";
+    downloadLink.href = canvas.toDataURL('image/png');
+    downloadLink.style.display = 'block';
+    downloadButton.style.display = 'block';
 
     const previewScale = isHD ? 0.5 : 1;
     canvas.style.transform = `scale(${previewScale})`;
-    canvas.style.transformOrigin = "top left";
-    document.querySelector("#sheet").style.width = `${canvas.width * previewScale}px`;
-    document.querySelector("#sheet").style.height = `${canvas.height * previewScale}px`;
+    canvas.style.transformOrigin = 'top left';
+    document.querySelector('#sheet').style.width = `${canvas.width * previewScale}px`;
+    document.querySelector('#sheet').style.height = `${canvas.height * previewScale}px`;
 }

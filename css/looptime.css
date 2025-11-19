@@ -1,7 +1,3 @@
-body {
-    padding-top: 20px;
-}
-
 .container {
     max-width: 400px;
     margin: 50px auto;
@@ -16,14 +12,42 @@ body {
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.1);
 }
 
-.box-title {
-    font-size: 20px;
-    margin-bottom: 20px;
+#example-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.box-sub-title {
-    font-size: 15px;
-    margin-bottom: 20px;
+#imgModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#imgModal img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#imgModal span {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .input {

@@ -20,5 +20,5 @@ function toggleTheme() {
 }
 
 function toggleTextChange() {
-    document.getElementById("theme-toggle").innerHTML = (localStorage.getItem('lightmode') === 'enabled') ? "🌙" : "☀️";
+    document.getElementById('theme-toggle').innerHTML = (localStorage.getItem('lightmode') === 'enabled') ? '🌙' : '☀️';
 }

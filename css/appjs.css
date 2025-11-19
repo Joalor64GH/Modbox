@@ -8,20 +8,51 @@ body {
 }
 
 form {
-    background-color: white;
-    color: black;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: 400px;
     display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    color: black;
+    overflow: visible;
 }
 
 .lightmode form {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.form-section h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 5px;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scrollable {
+    max-height: 1050px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 form label {
@@ -115,4 +146,58 @@ button:hover {
 
 #download-link button:hover {
     background-color: #0056b3;
+}
+
+#loading-bar-container {
+    width: 220px;
+    height: 28px;
+    position: relative;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-box .scale {
+    width: 100%;
+    height: 20px;
+    padding: 4px;
+    border: 2px solid #373737;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.progress-box .progress-bar {
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    height: 12px;
+    width: 0%;
+    border-radius: 8px;
+    background-color: #373737;
+    transition: width 0.5s ease-in-out;
+}
+
+.btn-circle {
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-circle i {
+    color: white;
+    pointer-events: none;
+}
+
+.btn-circle:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
