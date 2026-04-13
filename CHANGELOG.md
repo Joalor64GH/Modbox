@@ -1,5 +1,12 @@
 # Changelog
-## [V1.5] - 2025-11-19 (Latest)
+## [V1.6] - 2026-04-12 (Latest)
+### Additions
+* New Tool: Title SVG Generator
+
+### Changes
+* Updated App.js Generator
+
+## [V1.5] - 2025-11-19
 ### Additions
 * New Tool: Polo Animator
 

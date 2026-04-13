@@ -1,0 +1,124 @@
+.tool-container {
+    padding: 0 20px 40px;
+}
+
+.generator {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 720px;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.lightmode .generator {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.generator label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.generator label span {
+    min-width: 48px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.85;
+}
+
+.generator input[type="text"],
+.generator select {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    color: white;
+    outline: none;
+}
+
+body.lightmode .generator input,
+body.lightmode .generator select {
+    background-color: #ffffff;
+    color: black;
+}
+
+.generator input::placeholder {
+    color: #aaa;
+}
+
+.generator input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+#previewWrapper {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#previewSvg {
+    overflow: visible;
+    transform-origin: center;
+}
+
+.preview {
+    margin: 18px 0;
+    padding: 14px;
+    background-color: #0d0d0d;
+    border-radius: 14px;
+    border: 1px solid #333;
+}
+
+body.lightmode .preview {
+    background-color: #ffffff;
+    border-color: #ccc;
+}
+
+.preview svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.generator button {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+    background-color: #f5a918;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.generator button:hover {
+    background-color: #ffbe3d;
+    transform: scale(1.02);
+}
+
+#cssOutput {
+    margin-top: 14px;
+    padding: 12px;
+    background-color: #0d0d0d;
+    border-radius: 12px;
+    font-size: 14px;
+    overflow-x: auto;
+    text-align: left;
+}
+
+body.lightmode #cssOutput {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}

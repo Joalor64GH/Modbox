@@ -52,11 +52,39 @@ function loadImage(file, index, imagesArray, onAllImagesLoaded) {
     img.src = URL.createObjectURL(file);
 }
 
+function getBodySortOrder(filename) {
+    if (filename.includes('full')) return 0;
+    if (filename.includes('body')) return 1;
+    if (filename.includes('sil')) return 2;
+    return 3;
+}
+
+function getHeadNumber(filename) {
+    const match = filename.match(/\d+/);
+    return match ? parseInt(match[0], 10) : Infinity;
+}
+
+function sortBodyFiles(files) {
+    return Array.from(files).sort((a, b) => {
+        const orderA = getBodySortOrder(a.name);
+        const orderB = getBodySortOrder(b.name);
+        return orderA - orderB;
+    });
+}
+
+function sortHeadFiles(files) {
+    return Array.from(files).sort((a, b) => {
+        const numA = getHeadNumber(a.name);
+        const numB = getHeadNumber(b.name);
+        return numA - numB;
+    });
+}
+
 function createSpritesheet(isHD = false) {
     const bodyInput = document.getElementById('bodyInput');
     const headInput = document.getElementById('headInput');
-    const bodyFiles = Array.from(bodyInput.files).reverse();
-    const headFiles = Array.from(headInput.files).reverse();
+    const bodyFiles = sortBodyFiles(bodyInput.files);
+    const headFiles = sortHeadFiles(headInput.files);
 
     if (bodyFiles.length === 0 || headFiles.length === 0) {
         alert('Upload at least one body and one head image!');

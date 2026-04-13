@@ -73,6 +73,14 @@ footer {
     background-color: #4e85ec;
 }
 
+.square.titlesvg {
+    background-color: #8611ed;
+}
+
+.square:hover.titlesvg {
+    background-color: #b473ed;
+}
+
 .title-container {
     display: flex;
     justify-content: center;
@@ -104,6 +112,10 @@ footer {
 
 .lightmode .sub-title {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#version-icon {
+    filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, .5));
 }
 
 #version-icon .spin-group {

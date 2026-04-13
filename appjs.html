@@ -21,10 +21,16 @@
 <body>
     <div class="back-button" onclick="window.location.href='index.html'">⏴Back</div>
     <h1>App.js Generator</h1>
+    <div class="toolbar">
+        <input id="import-file-input" type="file" accept=".js,.json" style="display:none" />
+        <button type="button" id="import-file-btn">Import app.js / app.json</button>
+        <button type="button" id="export-appjs-btn">Export app.js (pre-v9)</button>
+        <button type="button" id="export-versions-btn">Export versions.vX (v9)</button>
+        <button type="button" id="export-json-btn">Export Modbox JSON</button>
+        <div id="imported-file-info" class="imported-file-info"></div>
+    </div>
 
     <form id="appjs-form">
-
-        <!-- Metadata Section -->
         <section class="form-section">
             <h2>Metadata</h2>
             <div class="section-content">
@@ -70,6 +76,29 @@
                 <label for="recminloop">Minimum Loops for Recording:</label>
                 <input type="number" id="recminloop" name="recminloop" value="4">
 
+                <label for="rmb-mode">RMB Mode (Rem's Modding Build):</label>
+                <input type="checkbox" id="rmb-mode" name="rmb-mode">
+
+                <div class="rmb-section" id="rmb-section">
+                    <label for="background">Background Image:</label>
+                    <input type="text" id="background" name="background" placeholder="game-bck@2x.jpg">
+
+                    <label for="poloSprite">Polo Sprite:</label>
+                    <input type="text" id="poloSprite" name="poloSprite" value="polo-sprite.png">
+
+                    <label for="poloHoverEffect">Polo Hover Effect:</label>
+                    <input type="checkbox" id="poloHoverEffect" name="poloHoverEffect">
+
+                    <label for="ambience">Ambience:</label>
+                    <input type="text" id="ambience" name="ambience" placeholder="">
+
+                    <label for="firstLoopDelay">First Loop Delay (ms):</label>
+                    <input type="number" id="firstLoopDelay" name="firstLoopDelay" value="300">
+
+                    <label for="pictoRowMax">Picto Row Max:</label>
+                    <input type="number" id="pictoRowMax" name="pictoRowMax" value="10">
+                </div>
+
                 <button type="button" id="open-color-popup">Configure Colors</button>
 
                 <label for="animearraylength">Number of Polos:</label>
@@ -93,13 +122,6 @@
         </section>
 
     </form>
-    <br>
-    <div class="button-container">
-        <button type="button" onclick="generateAppJs()">Generate app.js</button>
-        <button type="button" onclick="generateAppJs(true)">Generate app.js (V9 Format)</button>
-    </div>
-    <br>
-    <div id="download-link"></div>
     <div id="color-popup" style="display: none;">
         <div class="popup-content">
             <h2>Configure Colors</h2>
